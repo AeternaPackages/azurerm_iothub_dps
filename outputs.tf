@@ -1,4 +1,9 @@
 # --- azurerm_iothub_dps ---
+output "iothub_dpses_id" {
+  description = "Map of id values across all iothub_dpses, keyed the same as var.iothub_dpses"
+  value       = module.iothub_dpses.iothub_dpses_id
+}
+
 output "iothub_dpses_allocation_policy" {
   description = "Map of allocation_policy values across all iothub_dpses, keyed the same as var.iothub_dpses"
   value       = module.iothub_dpses.iothub_dpses_allocation_policy
@@ -66,6 +71,11 @@ output "iothub_dpses_tags" {
 }
 
 # --- azurerm_iothub_dps_shared_access_policy ---
+output "iothub_dps_shared_access_policies_id" {
+  description = "Map of id values across all iothub_dps_shared_access_policies, keyed the same as var.iothub_dps_shared_access_policies"
+  value       = module.iothub_dps_shared_access_policies.iothub_dps_shared_access_policies_id
+}
+
 output "iothub_dps_shared_access_policies_enrollment_read" {
   description = "Map of enrollment_read values across all iothub_dps_shared_access_policies, keyed the same as var.iothub_dps_shared_access_policies"
   value       = module.iothub_dps_shared_access_policies.iothub_dps_shared_access_policies_enrollment_read
