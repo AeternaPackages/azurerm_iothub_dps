@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.iothub_dpses : {
       for k2, v2 in coalesce(v1.iothub_dps_shared_access_policies, {}) :
       "${k1}/${k2}" => merge(v2, {
-        iothub_dps_name = module.iothub_dpses.iothub_dpses["${k1}"].name
+        iothub_dps_name = module.iothub_dpses.iothub_dpses_name["${k1}"]
       })
     }
   ]...)
