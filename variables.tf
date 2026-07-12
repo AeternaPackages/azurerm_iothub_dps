@@ -37,18 +37,18 @@ EOT
       capacity = number
       name     = string
     })
-    ip_filter_rule = optional(object({
+    ip_filter_rule = optional(list(object({
       action  = string
       ip_mask = string
       name    = string
       target  = optional(string)
-    }))
-    linked_hub = optional(object({
+    })))
+    linked_hub = optional(list(object({
       allocation_weight       = optional(number) # Default: 1
       apply_allocation_policy = optional(bool)   # Default: true
       connection_string       = string
       location                = string
-    }))
+    })))
     iothub_dps_shared_access_policies = optional(map(object({
       name                = string
       resource_group_name = string
