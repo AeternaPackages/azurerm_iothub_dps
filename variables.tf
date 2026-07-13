@@ -29,9 +29,9 @@ EOT
     location                      = string
     name                          = string
     resource_group_name           = string
-    allocation_policy             = optional(string) # Default: "Hashed"
-    data_residency_enabled        = optional(bool)   # Default: false
-    public_network_access_enabled = optional(bool)   # Default: true
+    allocation_policy             = optional(string)
+    data_residency_enabled        = optional(bool)
+    public_network_access_enabled = optional(bool)
     tags                          = optional(map(string))
     sku = object({
       capacity = number
@@ -44,19 +44,19 @@ EOT
       target  = optional(string)
     })))
     linked_hub = optional(list(object({
-      allocation_weight       = optional(number) # Default: 1
-      apply_allocation_policy = optional(bool)   # Default: true
+      allocation_weight       = optional(number)
+      apply_allocation_policy = optional(bool)
       connection_string       = string
       location                = string
     })))
     iothub_dps_shared_access_policies = optional(map(object({
       name                = string
       resource_group_name = string
-      enrollment_read     = optional(bool) # Default: false
-      enrollment_write    = optional(bool) # Default: false
-      registration_read   = optional(bool) # Default: false
-      registration_write  = optional(bool) # Default: false
-      service_config      = optional(bool) # Default: false
+      enrollment_read     = optional(bool)
+      enrollment_write    = optional(bool)
+      registration_read   = optional(bool)
+      registration_write  = optional(bool)
+      service_config      = optional(bool)
     })))
   }))
 
