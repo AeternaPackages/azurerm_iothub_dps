@@ -1,6 +1,6 @@
-variable "iothub_dpses" {
+variable "iothub_dps" {
   description = <<EOT
-Map of iothub_dpses, attributes below
+Map of iothub_dps, attributes below
 Required:
     - location
     - name
@@ -62,8 +62,8 @@ EOT
 
   validation {
     condition = alltrue(concat(
-      [for kk in keys(var.iothub_dpses) : !strcontains(kk, "/")],
-      flatten([for k0, v0 in var.iothub_dpses : [for kk in keys(coalesce(v0.iothub_dps_shared_access_policies, {})) : !strcontains(kk, "/")]])
+      [for kk in keys(var.iothub_dps) : !strcontains(kk, "/")],
+      flatten([for k0, v0 in var.iothub_dps : [for kk in keys(coalesce(v0.iothub_dps_shared_access_policies, {})) : !strcontains(kk, "/")]])
     ))
     error_message = "Map keys in this package must not contain '/': it is used internally as a nesting-key separator, so a key containing it can silently collide two different nested entries into one. Rename the offending key(s)."
   }
