@@ -12,12 +12,12 @@ locals {
 }
 
 module "iothub_dps" {
-  source     = "git::https://github.com/AeternaModules/azurerm_iothub_dps.git?ref=v4.81.0"
+  source     = "git::https://github.com/AeternaModules/azurerm_iothub_dps.git?ref=v5.0.0"
   iothub_dps = local.iothub_dps
 }
 
 module "iothub_dps_shared_access_policies" {
-  source                            = "git::https://github.com/AeternaModules/azurerm_iothub_dps_shared_access_policy.git?ref=v4.81.0"
+  source                            = "git::https://github.com/AeternaModules/azurerm_iothub_dps_shared_access_policy.git?ref=v5.0.0"
   iothub_dps_shared_access_policies = local.iothub_dps_shared_access_policies
   depends_on                        = [module.iothub_dps]
 }
